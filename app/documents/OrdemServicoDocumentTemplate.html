@@ -1,0 +1,96 @@
+<html>
+<head>
+</head>
+<body>
+<p style="margin: 1px 0px; text-align: center;"><span style="font-family: 'courier new', courier, monospace;"><span style="font-size: 18pt;"><strong>Ordem de Serviço # {$id}</strong></span></span></p>
+<p style="margin: 1px 0px; text-align: center;"> </p>
+<p style="margin: 1px 0px; text-align: center;"> </p>
+<table style="border-collapse: collapse; width: 100%; height: 133px;">
+<tbody>
+<tr style="height: 22px;">
+<td style="width: 38.7397%; height: 35px; text-align: left;" colspan="2"><span style="font-family: 'courier new', courier, monospace;"><strong><span style="font-size: 14pt;">Cliente:</span> </strong>{$cliente->nome}</span></td>
+<td style="width: 25.8781%; height: 35px; text-align: left;"><span style="font-size: 12pt; font-family: 'courier new', courier, monospace;"><strong><span style="font-size: 14pt;">Data Inicial:</span></strong>{$data_inicio}</span></td>
+</tr>
+<tr style="height: 22px;">
+<td style="width: 25%; height: 36px;"> </td>
+<td style="width: 13.7397%; height: 36px;"> </td>
+<td style="width: 25.8781%; height: 36px; text-align: left;"><span style="font-size: 10pt; font-family: 'courier new', courier, monospace;"><strong><span style="font-size: 14pt;">  Data Final:</span></strong><span style="font-size: 12pt;">{$data_fim}</span></span></td>
+</tr>
+<tr style="height: 22px;">
+<td style="height: 22px; width: 64.6178%;" colspan="3"><span style="font-family: 'courier new', courier, monospace;"><strong><span style="font-size: 14pt;">Descrição OS:</span> </strong>{$descricao}</span></td>
+</tr>
+<tr style="height: 32px;">
+<td style="height: 40px; width: 64.6178%;" colspan="3"><span style="font-family: 'courier new', courier, monospace;"><strong><span style="font-size: 14pt;">Descrição equipamentos | Auxiliares:</span> </strong>{$descricao_equipamento}</span></td>
+</tr>
+</tbody>
+</table>
+<p style="margin: 1px 0;"> </p>
+<table class="mce-table" style="border-collapse: collapse; width: 100%; height: 51px; border-style: solid;" border="0" width="100%" cellspacing="0" cellpadding="3" data-detailmodel="OrdemServicoAtendimento.ordem_servico_id">
+<thead>
+<tr style="background-color: #bdc3c7;">
+<th style="width: 1.05152%; height: 22px;" colspan="8"><span style="font-family: 'courier new', courier, monospace; font-size: 14pt;">ATENDIMENTOS REALIZADOS</span></th>
+</tr>
+</thead>
+<tbody>
+<tr style="background-color: #f0f0f0;">
+<td style="width: 1.05152%; height: 29px;" colspan="8">
+<table style="border-collapse: collapse; width: 100%;" border="1">
+<tbody>
+<tr>
+<td style="width: 14.1025%; text-align: right;"><strong><span style="font-family: 'courier new', courier, monospace;">Técnico:</span></strong></td>
+<td style="width: 37.2864%;"><span style="font-family: 'courier new', courier, monospace;">{$tecnico->nome}</span></td>
+<td style="width: 11.3249%; text-align: right;"><strong><span style="font-family: 'courier new', courier, monospace;">Problema:</span></strong></td>
+<td style="width: 37.2862%;"><span style="font-family: 'courier new', courier, monospace;">{$problema->nome}</span></td>
+</tr>
+<tr>
+<td style="width: 14.1025%; text-align: right;"><strong><span style="font-family: 'courier new', courier, monospace;">Data:</span></strong></td>
+<td style="width: 37.2864%;"><span style="font-family: 'courier new', courier, monospace;">{$data_atendimento}</span></td>
+<td style="width: 11.3249%; text-align: right;"><strong><span style="font-family: 'courier new', courier, monospace;">Causa:</span></strong></td>
+<td style="width: 37.2862%;"><span style="font-family: 'courier new', courier, monospace;">{$causa->nome}</span></td>
+</tr>
+<tr>
+<td style="width: 14.1025%; text-align: right;"><strong><span style="font-family: 'courier new', courier, monospace;">Horário:</span></strong></td>
+<td style="width: 37.2864%;"><span style="font-size: 10pt; font-family: 'courier new', courier, monospace;">{$horario_inicial} até {$horario_final}</span></td>
+<td style="width: 11.3249%; text-align: right;"><strong><span style="font-family: 'courier new', courier, monospace;">Solução:</span></strong></td>
+<td style="width: 37.2862%;"><span style="font-family: 'courier new', courier, monospace;">{$solucao->nome}</span></td>
+</tr>
+<tr>
+<td style="width: 14.1025%; text-align: right;"><strong><span style="font-family: 'courier new', courier, monospace;">Observações:</span></strong></td>
+<td style="width: 85.8975%;" colspan="3"><span style="font-family: 'courier new', courier, monospace;">{$observacao}</span></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin: 1px 0;"> </p>
+<table class="mce-table" style="border-collapse: collapse; width: 100%; height: 74px; border-style: solid;" border="0" width="100.044%" cellspacing="0" cellpadding="3" data-detailmodel="OrdemServicoItem.ordem_servico_id">
+<thead>
+<tr style="height: 26px; background-color: #bdc3c7;">
+<th style="width: 102.148%; height: 26px;" colspan="5"><span style="font-size: 14pt; font-family: 'courier new', courier, monospace;">PRODUTOS E SERVIÇOS</span></th>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 40%; height: 24px;"><strong><span style="font-family: 'courier new', courier, monospace;">Produto</span></strong></td>
+<td style="width: 15%; height: 24px;"><strong><span style="font-family: 'courier new', courier, monospace;">Quantidade</span></strong></td>
+<td style="width: 15%; height: 24px;"><strong><span style="font-family: 'courier new', courier, monospace;">Desconto</span></strong></td>
+<td style="width: 15%; height: 24px;"><strong><span style="font-family: 'courier new', courier, monospace;">Valor</span></strong></td>
+<td style="width: 15%; height: 24px;"><strong><span style="font-family: 'courier new', courier, monospace;">Valor total</span></strong></td>
+</tr>
+</thead>
+<tbody>
+<tr style="background-color: #f0f0f0;">
+<td style="width: 40%; height: 24px;"><span style="font-family: 'courier new', courier, monospace;">{$produto->nome}</span></td>
+<td style="width: 15%; height: 24px;"><span style="font-family: 'courier new', courier, monospace;">{$quantidade}</span></td>
+<td style="width: 15%; height: 24px;"><span style="font-family: 'courier new', courier, monospace;">{$desconto}</span></td>
+<td style="width: 15%; height: 24px;"><span style="font-family: 'courier new', courier, monospace;">{$valor}</span></td>
+<td style="width: 15%; height: 24px;"><span style="font-family: 'courier new', courier, monospace;">{$valor_total}</span></td>
+</tr>
+</tbody>
+</table>
+<p style="margin: 1px 0;"> </p>
+<p style="margin: 1px 0;"> </p>
+<p style="margin: 1px 0;"> </p>
+<p style="margin: 1px 0px; text-align: right;"><span style="font-family: 'courier new', courier, monospace; font-size: 14pt;"><strong>Valor total da OS: R$ </strong>{$valor_total_geral}</span></p>
+</body>
+</html>
