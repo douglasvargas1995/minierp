@@ -80,7 +80,7 @@ class ContaReceberForm extends TPage
         $row1 = $this->form->addFields([new TLabel("Id:", null, '14px', null, '100%'),$id],[]);
         $row1->layout = ['col-sm-6','col-sm-6'];
 
-        $row2 = $this->form->addFields([new TLabel("Cliente teste:", '#000000', '14px', null, '100%'),$pessoa_id],[new TLabel("Categoria:", '#000000', '14px', null, '100%'),$categoria_id]);
+        $row2 = $this->form->addFields([new TLabel("Cliente:", '#000000', '14px', null, '100%'),$pessoa_id],[new TLabel("Categoria:", '#000000', '14px', null, '100%'),$categoria_id]);
         $row2->layout = ['col-sm-6','col-sm-6'];
 
         $row3 = $this->form->addFields([new TLabel("Forma de pagamento:", '#000000', '14px', null, '100%'),$forma_pagamento_id],[]);
