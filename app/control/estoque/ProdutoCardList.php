@@ -104,6 +104,10 @@ class ProdutoCardList extends TPage
 
         $this->filter_criteria = new TCriteria;
 
+        $action_ProdutoFormView_onShow = new TAction(['ProdutoFormView', 'onShow'], ['key'=> '{id}']);
+
+        $this->cardView->addAction($action_ProdutoFormView_onShow, "Ação", 'fas:search-plus #4CAF50'); 
+
         $action_ProdutoForm_onEdit = new TAction(['ProdutoForm', 'onEdit'], ['key'=> '{id}']);
 
         $this->cardView->addAction($action_ProdutoForm_onEdit, "Editar", 'far:edit #478fca'); 
