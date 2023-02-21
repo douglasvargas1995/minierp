@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-name: 🚀 Deploy website on push
+name: deploy mini erp
 jobs:
   web-deploy:
     name: 🎉 Deploy
