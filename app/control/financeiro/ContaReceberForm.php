@@ -210,8 +210,6 @@ class ContaReceberForm extends TPage
     public function onShow($param = null)
     {
 
-        $this->form->getField('valor_recebido')->setEditable(false);
-
     } 
 
     public  function onQuitar($param = null) 
