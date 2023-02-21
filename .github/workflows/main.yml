@@ -14,3 +14,4 @@ jobs:
         server: 18.188.68.49
         username: ftp_user
         password: #teste123
+        server-dir: html/minierp/
