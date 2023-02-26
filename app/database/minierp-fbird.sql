@@ -573,12 +573,12 @@ ALTER TABLE conta ADD CONSTRAINT fk_conta_4 FOREIGN KEY (pessoa_id) references p
 ALTER TABLE conta ADD CONSTRAINT fk_conta_5 FOREIGN KEY (pedido_venda_id) references pedido_venda(id); 
 ALTER TABLE conta_anexo ADD CONSTRAINT fk_conta_anexo_1 FOREIGN KEY (conta_id) references conta(id); 
 ALTER TABLE conta_anexo ADD CONSTRAINT fk_conta_anexo_2 FOREIGN KEY (tipo_anexo_id) references tipo_anexo(id); 
-ALTER TABLE estado_pedido_venda_aprovador ADD CONSTRAINT estado_pedido_venda_aprovador_63fbf0297868b FOREIGN KEY (estado_pedido_venda_id) references estado_pedido_venda(id); 
-ALTER TABLE estado_pedido_venda_aprovador ADD CONSTRAINT estado_pedido_venda_aprovador_63fbf029786a2 FOREIGN KEY (aprovador_id) references aprovador(id); 
+ALTER TABLE estado_pedido_venda_aprovador ADD CONSTRAINT estado_pedido_venda_aprovador_63fbf095d213b FOREIGN KEY (estado_pedido_venda_id) references estado_pedido_venda(id); 
+ALTER TABLE estado_pedido_venda_aprovador ADD CONSTRAINT estado_pedido_venda_aprovador_63fbf095d2152 FOREIGN KEY (aprovador_id) references aprovador(id); 
 ALTER TABLE item_pagamento ADD CONSTRAINT fk_item_pagamento_1 FOREIGN KEY (forma_pagamento_id) references forma_pagamento(id); 
 ALTER TABLE item_pagamento ADD CONSTRAINT fk_item_pagamento_2 FOREIGN KEY (conta_id) references conta(id); 
-ALTER TABLE matriz_estado_pedido_venda ADD CONSTRAINT matriz_estado_pedido_venda_63fbf02978d6d FOREIGN KEY (estado_pedido_venda_origem_id) references estado_pedido_venda(id); 
-ALTER TABLE matriz_estado_pedido_venda ADD CONSTRAINT matriz_estado_pedido_venda_63fbf02978d83 FOREIGN KEY (estado_pedido_venda_destino_id) references estado_pedido_venda(id); 
+ALTER TABLE matriz_estado_pedido_venda ADD CONSTRAINT matriz_estado_pedido_venda_63fbf095d27df FOREIGN KEY (estado_pedido_venda_origem_id) references estado_pedido_venda(id); 
+ALTER TABLE matriz_estado_pedido_venda ADD CONSTRAINT matriz_estado_pedido_venda_63fbf095d27f4 FOREIGN KEY (estado_pedido_venda_destino_id) references estado_pedido_venda(id); 
 ALTER TABLE negociacao ADD CONSTRAINT fk_negociacao_1 FOREIGN KEY (cliente_id) references pessoa(id); 
 ALTER TABLE negociacao ADD CONSTRAINT fk_negociacao_2 FOREIGN KEY (vendedor_id) references pessoa(id); 
 ALTER TABLE negociacao ADD CONSTRAINT fk_negociacao_3 FOREIGN KEY (origem_contato_id) references origem_contato(id); 
@@ -586,8 +586,8 @@ ALTER TABLE negociacao ADD CONSTRAINT fk_negociacao_4 FOREIGN KEY (etapa_negocia
 ALTER TABLE negociacao_arquivo ADD CONSTRAINT fk_negociacao_arquivo_1 FOREIGN KEY (negociacao_id) references negociacao(id); 
 ALTER TABLE negociacao_atividade ADD CONSTRAINT fk_negociacao_atividade_1 FOREIGN KEY (negociacao_id) references negociacao(id); 
 ALTER TABLE negociacao_atividade ADD CONSTRAINT fk_negociacao_atividade_2 FOREIGN KEY (tipo_atividade_id) references tipo_atividade(id); 
-ALTER TABLE negociacao_historico_etapa ADD CONSTRAINT negociacao_historico_etapa_63fbf0297929f FOREIGN KEY (negociacao_id) references negociacao(id); 
-ALTER TABLE negociacao_historico_etapa ADD CONSTRAINT negociacao_historico_etapa_63fbf029792b6 FOREIGN KEY (etapa_negociacao_id) references etapa_negociacao(id); 
+ALTER TABLE negociacao_historico_etapa ADD CONSTRAINT negociacao_historico_etapa_63fbf095d2d0c FOREIGN KEY (negociacao_id) references negociacao(id); 
+ALTER TABLE negociacao_historico_etapa ADD CONSTRAINT negociacao_historico_etapa_63fbf095d2d22 FOREIGN KEY (etapa_negociacao_id) references etapa_negociacao(id); 
 ALTER TABLE negociacao_item ADD CONSTRAINT fk_negociacao_item_1 FOREIGN KEY (negociacao_id) references negociacao(id); 
 ALTER TABLE negociacao_item ADD CONSTRAINT fk_negociacao_item_2 FOREIGN KEY (produto_id) references produto(id); 
 ALTER TABLE negociacao_observacao ADD CONSTRAINT fk_negociacao_observacao_1 FOREIGN KEY (negociacao_id) references negociacao(id); 
