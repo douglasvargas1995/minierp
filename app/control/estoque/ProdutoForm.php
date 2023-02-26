@@ -110,7 +110,7 @@ class ProdutoForm extends TPage
         $bcontainer_62463e0849f16 = new BootstrapFormBuilder('bcontainer_62463e0849f16');
         $this->bcontainer_62463e0849f16 = $bcontainer_62463e0849f16;
         $bcontainer_62463e0849f16->setProperty('style', 'border:none; box-shadow:none;');
-        $row2 = $bcontainer_62463e0849f16->addFields([new TLabel("Id:", null, '14px', null, '100%'),$id],[new TLabel("Nome:", '#000000', '14px', null, '100%'),$nome]);
+        $row2 = $bcontainer_62463e0849f16->addFields([new TLabel("Id:", null, '14px', null, '100%'),$id],[new TLabel("Nome:", null, '14px', null, '100%'),$nome]);
         $row2->layout = [' col-sm-6','col-sm-6'];
 
         $row3 = $bcontainer_62463e0849f16->addFields([new TLabel("Código de barras:", null, '14px', null, '100%'),$cod_barras],[new TLabel("Ativo:", null, '14px', null, '100%'),$ativo]);
@@ -119,10 +119,10 @@ class ProdutoForm extends TPage
         $row4 = $this->form->addFields([$foto],[$bcontainer_62463e0849f16]);
         $row4->layout = [' col-sm-3',' col-sm-9'];
 
-        $row5 = $this->form->addFields([new TLabel("Tipo de produto:", '#000000', '14px', null, '100%'),$tipo_produto_id],[new TLabel("Família de produto:", '#000000', '14px', null, '100%'),$familia_produto_id]);
+        $row5 = $this->form->addFields([new TLabel("Tipo de produto:", null, '14px', null, '100%'),$tipo_produto_id],[new TLabel("Família de produto:", null, '14px', null, '100%'),$familia_produto_id]);
         $row5->layout = ['col-sm-6','col-sm-6'];
 
-        $row6 = $this->form->addFields([new TLabel("Fornecedor:", '#000000', '14px', null, '100%'),$fornecedor_id],[new TLabel("Fabricante:", null, '14px', null, '100%'),$fabricante_id]);
+        $row6 = $this->form->addFields([new TLabel("Fornecedor:", null, '14px', null, '100%'),$fornecedor_id],[new TLabel("Fabricante:", null, '14px', null, '100%'),$fabricante_id]);
         $row6->layout = ['col-sm-6','col-sm-6'];
 
         $row7 = $this->form->addContent([new TFormSeparator("Preços", '#333', '18', '#eee')]);
@@ -133,7 +133,7 @@ class ProdutoForm extends TPage
         $row10 = $this->form->addFields([new TLabel("Largura:", null, '14px', null, '100%'),$largura],[new TLabel("Altura:", null, '14px', null, '100%'),$altura]);
         $row10->layout = ['col-sm-6','col-sm-6'];
 
-        $row11 = $this->form->addFields([new TLabel("Unidade de medida:", '#000000', '14px', null, '100%'),$unidade_medida_id],[new TLabel("Volume:", null, '14px', null, '100%'),$volume]);
+        $row11 = $this->form->addFields([new TLabel("Unidade de medida:", null, '14px', null, '100%'),$unidade_medida_id],[new TLabel("Volume:", null, '14px', null, '100%'),$volume]);
         $row11->layout = ['col-sm-6',' col-sm-6'];
 
         $row12 = $this->form->addFields([new TLabel("Peso líquido:", null, '14px', null, '100%'),$peso_liquido],[new TLabel("Peso bruto:", null, '14px', null, '100%'),$peso_bruto]);

@@ -69,6 +69,8 @@ CREATE TABLE conta(
       dt_emissao date   , 
       dt_pagamento date   , 
       valor binary_double   , 
+      valor_recebido binary_double   , 
+      valor_diferenca binary_double   , 
       parcela number(10)   , 
       obs varchar(3000)   , 
       mes_vencimento number(10)   , 
@@ -167,6 +169,19 @@ CREATE TABLE forma_pagamento(
 CREATE TABLE grupo_pessoa( 
       id number(10)    NOT NULL , 
       nome varchar  (255)    NOT NULL , 
+ PRIMARY KEY (id)) ; 
+
+CREATE TABLE item_pagamento( 
+      id number(10)    NOT NULL , 
+      conta_id number(10)    NOT NULL , 
+      forma_pagamento_id number(10)    NOT NULL , 
+      obs varchar(3000)   , 
+      valor binary_double   , 
+      mes char  (2)   , 
+      ano char  (4)   , 
+      created_at timestamp(0)   , 
+      updated_at timestamp(0)   , 
+      deleted_at timestamp(0)   , 
  PRIMARY KEY (id)) ; 
 
 CREATE TABLE matriz_estado_pedido_venda( 
@@ -560,6 +575,8 @@ ALTER TABLE conta_anexo ADD CONSTRAINT fk_conta_anexo_1 FOREIGN KEY (conta_id) r
 ALTER TABLE conta_anexo ADD CONSTRAINT fk_conta_anexo_2 FOREIGN KEY (tipo_anexo_id) references tipo_anexo(id); 
 ALTER TABLE estado_pedido_venda_aprovador ADD CONSTRAINT fk_estado_pedido_venda_aprovador_1 FOREIGN KEY (estado_pedido_venda_id) references estado_pedido_venda(id); 
 ALTER TABLE estado_pedido_venda_aprovador ADD CONSTRAINT fk_estado_pedido_venda_aprovador_2 FOREIGN KEY (aprovador_id) references aprovador(id); 
+ALTER TABLE item_pagamento ADD CONSTRAINT fk_item_pagamento_1 FOREIGN KEY (forma_pagamento_id) references forma_pagamento(id); 
+ALTER TABLE item_pagamento ADD CONSTRAINT fk_item_pagamento_2 FOREIGN KEY (conta_id) references conta(id); 
 ALTER TABLE matriz_estado_pedido_venda ADD CONSTRAINT fk_matriz_estado_pedido_venda_1 FOREIGN KEY (estado_pedido_venda_origem_id) references estado_pedido_venda(id); 
 ALTER TABLE matriz_estado_pedido_venda ADD CONSTRAINT fk_matriz_estado_pedido_venda_2 FOREIGN KEY (estado_pedido_venda_destino_id) references estado_pedido_venda(id); 
 ALTER TABLE negociacao ADD CONSTRAINT fk_negociacao_1 FOREIGN KEY (cliente_id) references pessoa(id); 
@@ -922,6 +939,21 @@ WHEN
 BEGIN 
 
 SELECT grupo_pessoa_id_seq.NEXTVAL INTO :NEW.id FROM DUAL; 
+
+END;
+CREATE SEQUENCE item_pagamento_id_seq START WITH 1 INCREMENT BY 1; 
+
+CREATE OR REPLACE TRIGGER item_pagamento_id_seq_tr 
+
+BEFORE INSERT ON item_pagamento FOR EACH ROW 
+
+WHEN 
+
+(NEW.id IS NULL) 
+
+BEGIN 
+
+SELECT item_pagamento_id_seq.NEXTVAL INTO :NEW.id FROM DUAL; 
 
 END;
 CREATE SEQUENCE matriz_estado_pedido_venda_id_seq START WITH 1 INCREMENT BY 1; 

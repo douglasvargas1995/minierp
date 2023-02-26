@@ -168,10 +168,10 @@ class PessoaForm extends TPage
         $row1->layout = [' col-sm-3','col-sm-6'];
 
         $row2 = $this->form->addContent([new TFormSeparator("", '#333', '18', '#eee')]);
-        $row3 = $this->form->addFields([new TLabel("Nome*:", '#000000', '14px', null, '100%'),$nome],[new TLabel("Tipo de cliente*:", '#000000', '14px', null, '100%'),$tipo_cliente_id]);
+        $row3 = $this->form->addFields([new TLabel("Nome*:", null, '14px', null, '100%'),$nome],[new TLabel("Tipo de cliente*:", null, '14px', null, '100%'),$tipo_cliente_id]);
         $row3->layout = ['col-sm-6','col-sm-6'];
 
-        $row4 = $this->form->addFields([new TLabel("Documento*:", '#000000', '14px', null, '100%'),$documento,$button_buscar_cnpj],[new TLabel("Categoria*:", '#000000', '14px', null, '100%'),$categoria_cliente_id]);
+        $row4 = $this->form->addFields([new TLabel("Documento*:", null, '14px', null, '100%'),$documento,$button_buscar_cnpj],[new TLabel("Categoria*:", null, '14px', null, '100%'),$categoria_cliente_id]);
         $row4->layout = ['col-sm-6','col-sm-6'];
 
         $row5 = $this->form->addFields([new TLabel("Email:", null, '14px', null, '100%'),$email],[new TLabel("Fone:", null, '14px', null, '100%'),$fone]);
@@ -201,7 +201,7 @@ class PessoaForm extends TPage
         $row12 = $this->detailFormPessoaEnderecoPessoa->addFields([new TLabel("CEP:", null, '14px', null, '100%'),$pessoa_endereco_pessoa_cep,$button_buscar_pessoa_endereco_pessoa]);
         $row12->layout = ['col-sm-6'];
 
-        $row13 = $this->detailFormPessoaEnderecoPessoa->addFields([new TLabel("Estado:", '#000000', '14px', null, '100%'),$pessoa_endereco_pessoa_cidade_estado_id,$pessoa_endereco_pessoa_id],[new TLabel("Cidade:", '#000000', '14px', null, '100%'),$pessoa_endereco_pessoa_cidade_id]);
+        $row13 = $this->detailFormPessoaEnderecoPessoa->addFields([new TLabel("Estado:", null, '14px', null, '100%'),$pessoa_endereco_pessoa_cidade_estado_id,$pessoa_endereco_pessoa_id],[new TLabel("Cidade:", null, '14px', null, '100%'),$pessoa_endereco_pessoa_cidade_id]);
         $row13->layout = ['col-sm-6','col-sm-6'];
 
         $row14 = $this->detailFormPessoaEnderecoPessoa->addFields([new TLabel("Rua:", null, '14px', null, '100%'),$pessoa_endereco_pessoa_rua],[new TLabel("Numero:", null, '14px', null, '100%'),$pessoa_endereco_pessoa_numero]);
@@ -309,6 +309,10 @@ class PessoaForm extends TPage
         $this->form->addHeaderWidget($btnClose);
 
         parent::add($this->form);
+
+        $style = new TStyle('right-panel > .container-part[page-name=PessoaForm]');
+        $style->width = '60% !important';   
+        $style->show(true);
 
     }
 

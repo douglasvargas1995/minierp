@@ -18,6 +18,7 @@ SELECT setval('fabricante_id_seq', coalesce(max(id),0) + 1, false) FROM fabrican
 SELECT setval('familia_produto_id_seq', coalesce(max(id),0) + 1, false) FROM familia_produto;
 SELECT setval('forma_pagamento_id_seq', coalesce(max(id),0) + 1, false) FROM forma_pagamento;
 SELECT setval('grupo_pessoa_id_seq', coalesce(max(id),0) + 1, false) FROM grupo_pessoa;
+SELECT setval('item_pagamento_id_seq', coalesce(max(id),0) + 1, false) FROM item_pagamento;
 SELECT setval('matriz_estado_pedido_venda_id_seq', coalesce(max(id),0) + 1, false) FROM matriz_estado_pedido_venda;
 SELECT setval('negociacao_id_seq', coalesce(max(id),0) + 1, false) FROM negociacao;
 SELECT setval('negociacao_arquivo_id_seq', coalesce(max(id),0) + 1, false) FROM negociacao_arquivo;

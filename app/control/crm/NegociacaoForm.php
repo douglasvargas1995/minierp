@@ -96,14 +96,14 @@ class NegociacaoForm extends TPage
         $cliente_id->setAction($cliente_id_seekAction);
 
         $row1 = $this->form->addContent([new TFormSeparator("Informações Gerais", '#333', '18', '#eee')]);
-        $row2 = $this->form->addFields([new TLabel("Id:", null, '14px', null, '100%'),$id],[new TLabel("Vendedor:", '#ff0000', '14px', null, '100%'),$vendedor_id],[new TLabel("Etapa:", '#ff0000', '14px', null, '100%'),$etapa_negociacao_id]);
+        $row2 = $this->form->addFields([new TLabel("Id:", null, '14px', null, '100%'),$id],[new TLabel("Vendedor:", null, '14px', null, '100%'),$vendedor_id],[new TLabel("Etapa:", null, '14px', null, '100%'),$etapa_negociacao_id]);
         $row2->layout = [' col-sm-4',' col-sm-4',' col-sm-4'];
 
-        $row3 = $this->form->addFields([new TLabel("Origem do contato:", '#ff0000', '14px', null, '100%'),$origem_contato_id],[new TLabel("Data de início:", '#ff0000', '14px', null, '100%'),$data_inicio],[new TLabel("Data esperada de fechamento:", null, '14px', null, '100%'),$data_fechamento_esperada]);
+        $row3 = $this->form->addFields([new TLabel("Origem do contato:", 'v', '14px', null, '100%'),$origem_contato_id],[new TLabel("Data de início:", null, '14px', null, '100%'),$data_inicio],[new TLabel("Data esperada de fechamento:", null, '14px', null, '100%'),$data_fechamento_esperada]);
         $row3->layout = [' col-sm-4',' col-sm-4',' col-sm-4'];
 
         $row4 = $this->form->addContent([new TFormSeparator("Informações do Cliente", '#333', '18', '#eee')]);
-        $row5 = $this->form->addFields([new TLabel("Cliente:", '#ff0000', '14px', null, '100%'),$cliente_id,$cliente_nome],[new TLabel("Documento:", null, '14px', null),$cliente_documento],[new TLabel("Tipo do cliente:", null, '14px', null),$cliente_tipo_cliente_nome]);
+        $row5 = $this->form->addFields([new TLabel("Cliente:", null, '14px', null, '100%'),$cliente_id,$cliente_nome],[new TLabel("Documento:", null, '14px', null),$cliente_documento],[new TLabel("Tipo do cliente:", null, '14px', null),$cliente_tipo_cliente_nome]);
         $row5->layout = ['col-sm-4',' col-sm-4',' col-sm-4'];
 
         // create the form actions

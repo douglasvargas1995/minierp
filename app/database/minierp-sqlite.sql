@@ -74,6 +74,8 @@ CREATE TABLE conta(
       dt_emissao date   , 
       dt_pagamento date   , 
       valor double   , 
+      valor_recebido double   , 
+      valor_diferenca double   , 
       parcela int   , 
       obs text   , 
       mes_vencimento int   , 
@@ -183,6 +185,21 @@ CREATE TABLE grupo_pessoa(
       id  INTEGER    NOT NULL  , 
       nome varchar  (255)   NOT NULL  , 
  PRIMARY KEY (id)) ; 
+
+CREATE TABLE item_pagamento( 
+      id  INTEGER    NOT NULL  , 
+      conta_id int   NOT NULL  , 
+      forma_pagamento_id int   NOT NULL  , 
+      obs text   , 
+      valor double   , 
+      mes char  (2)   , 
+      ano char  (4)   , 
+      created_at datetime   , 
+      updated_at datetime   , 
+      deleted_at datetime   , 
+ PRIMARY KEY (id),
+FOREIGN KEY(forma_pagamento_id) REFERENCES forma_pagamento(id),
+FOREIGN KEY(conta_id) REFERENCES conta(id)) ; 
 
 CREATE TABLE matriz_estado_pedido_venda( 
       id  INTEGER    NOT NULL  , 

@@ -227,6 +227,16 @@ class ContaReceberList extends TPage
 
         $this->datagrid->addAction($action_onDelete);
 
+        $action_ContaReceberFormParcial_onEdit = new TDataGridAction(array('ContaReceberFormParcial', 'onEdit'));
+        $action_ContaReceberFormParcial_onEdit->setUseButton(false);
+        $action_ContaReceberFormParcial_onEdit->setButtonClass('btn btn-default btn-sm');
+        $action_ContaReceberFormParcial_onEdit->setLabel("Quitar conta parcial");
+        $action_ContaReceberFormParcial_onEdit->setImage('fas:calendar-check #2196F3');
+        $action_ContaReceberFormParcial_onEdit->setField(self::$primaryKey);
+        $action_ContaReceberFormParcial_onEdit->setDisplayCondition('ContaReceberList::onExibirQuitarParcial');
+
+        $this->datagrid->addAction($action_ContaReceberFormParcial_onEdit);
+
         $action_onQuitar = new TDataGridAction(array('ContaReceberForm', 'onQuitar'));
         $action_onQuitar->setUseButton(false);
         $action_onQuitar->setButtonClass('btn btn-default btn-sm');
@@ -403,6 +413,22 @@ class ContaReceberList extends TPage
             $action->setParameter('delete', 1);
             // shows a dialog to the user
             new TQuestion(AdiantiCoreTranslator::translate('Do you really want to delete ?'), $action);   
+        }
+    }
+    public static function onExibirQuitarParcial($object)
+    {
+        try 
+        {
+            if(!$object->dt_pagamento)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        catch (Exception $e) 
+        {
+            new TMessage('error', $e->getMessage());    
         }
     }
     public static function onExibirQuitarConta($object)

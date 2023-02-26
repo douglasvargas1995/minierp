@@ -49,9 +49,12 @@ class ContaReceberForm extends TPage
         $pessoa_id->addValidation("Pessoa", new TRequiredValidator()); 
         $categoria_id->addValidation("Categoria", new TRequiredValidator()); 
         $forma_pagamento_id->addValidation("Forma de pagamento", new TRequiredValidator()); 
+        $dt_emissao->addValidation("Data de emissão", new TRequiredValidator()); 
+        $dt_vencimento->addValidation("Data de vencimento", new TRequiredValidator()); 
 
-        $parcela->setRange(1, 2000, 1);
         $id->setEditable(false);
+        $dt_emissao->setValue(date('d/m/Y'));
+        $parcela->setRange(1, 2000, 1);
         $pessoa_id->enableSearch();
         $categoria_id->enableSearch();
         $forma_pagamento_id->enableSearch();
@@ -80,10 +83,10 @@ class ContaReceberForm extends TPage
         $row1 = $this->form->addFields([new TLabel("Id:", null, '14px', null, '100%'),$id],[]);
         $row1->layout = ['col-sm-6','col-sm-6'];
 
-        $row2 = $this->form->addFields([new TLabel("Cliente:", '#000000', '14px', null, '100%'),$pessoa_id],[new TLabel("Categoria:", '#000000', '14px', null, '100%'),$categoria_id]);
+        $row2 = $this->form->addFields([new TLabel("Cliente:", null, '14px', null, '100%'),$pessoa_id],[new TLabel("Categoria:", null, '14px', null, '100%'),$categoria_id]);
         $row2->layout = ['col-sm-6','col-sm-6'];
 
-        $row3 = $this->form->addFields([new TLabel("Forma de pagamento:", '#000000', '14px', null, '100%'),$forma_pagamento_id],[]);
+        $row3 = $this->form->addFields([new TLabel("Forma de pagamento:", null, '14px', null, '100%'),$forma_pagamento_id],[]);
         $row3->layout = ['col-sm-6','col-sm-6'];
 
         $row4 = $this->form->addFields([new TLabel("Data de emissão:", null, '14px', null, '100%'),$dt_emissao],[new TLabel("Data de pagamento:", null, '14px', null, '100%'),$dt_pagamento],[new TLabel("Data de vencimento:", null, '14px', null, '100%'),$dt_vencimento]);

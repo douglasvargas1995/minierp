@@ -58,15 +58,20 @@ class ContaReceberFormView extends TPage
         $text13 = new TTextDisplay($conta->obs, '', '16px', '');
         $listagem_de_os = new BPageContainer();
         $anexos = new BPageContainer();
+        $bpagecontainer10 = new BPageContainer();
 
         $anexos->setAction(new TAction(['ContaAnexoHeaderList', 'onShow'], ['conta_id' => $conta->id]));
+        $bpagecontainer10->setAction(new TAction(['ItemPagamentoClienteList', 'onShow'], ['conta_id' => $conta->id]));
         $listagem_de_os->setAction(new TAction(['OrdemServicoListCliente', 'onShow'], ['id_cliente' => $conta->pessoa_id]));
 
         $anexos->setSize('100%');
         $listagem_de_os->setSize('100%');
+        $bpagecontainer10->setSize('100%');
 
         $anexos->setId('b62ec540014569');
         $listagem_de_os->setId('b63ec1c63974cf');
+        $bpagecontainer10->setId('b63f9143a0b74c');
+
 
 
 
@@ -90,6 +95,16 @@ class ContaReceberFormView extends TPage
         $loadingContainer->add('<br>Carregando');
 
         $anexos->add($loadingContainer);
+        $loadingContainer = new TElement('div');
+        $loadingContainer->style = 'text-align:center; padding:50px';
+
+        $icon = new TElement('i');
+        $icon->class = 'fas fa-spinner fa-spin fa-3x';
+
+        $loadingContainer->add($icon);
+        $loadingContainer->add('<br>Carregando');
+
+        $bpagecontainer10->add($loadingContainer);
 
         $row1 = $this->form->addFields([$label2,$text1],[$label16,$text14],[$label18,$text11]);
         $row1->layout = [' col-sm-4',' col-sm-4',' col-sm-4'];
@@ -119,8 +134,12 @@ class ContaReceberFormView extends TPage
         $row6 = $tab_63ec1bd4e5c50->addFields([$anexos]);
         $row6->layout = [' col-sm-12'];
 
-        $row7 = $this->form->addFields([$tab_63ec1bd4e5c50]);
+        $tab_63ec1bd4e5c50->appendPage("Pagamentos");
+        $row7 = $tab_63ec1bd4e5c50->addFields([$bpagecontainer10]);
         $row7->layout = [' col-sm-12'];
+
+        $row8 = $this->form->addFields([$tab_63ec1bd4e5c50]);
+        $row8->layout = [' col-sm-12'];
 
         if(!empty($param['current_tab']))
         {

@@ -27,6 +27,15 @@ class FormaPagamento extends TRecord
         $criteria->add(new TFilter('forma_pagamento_id', '=', $this->id));
         return Conta::getObjects( $criteria );
     }
+    /**
+     * Method getItemPagamentos
+     */
+    public function getItemPagamentos()
+    {
+        $criteria = new TCriteria;
+        $criteria->add(new TFilter('forma_pagamento_id', '=', $this->id));
+        return ItemPagamento::getObjects( $criteria );
+    }
 
     public function set_conta_pessoa_to_string($conta_pessoa_to_string)
     {
@@ -181,6 +190,58 @@ class FormaPagamento extends TRecord
         }
     
         $values = Conta::where('forma_pagamento_id', '=', $this->id)->getIndexedArray('ordem_servico_id','{ordem_servico->id}');
+        return implode(', ', $values);
+    }
+
+    public function set_item_pagamento_conta_to_string($item_pagamento_conta_to_string)
+    {
+        if(is_array($item_pagamento_conta_to_string))
+        {
+            $values = Conta::where('id', 'in', $item_pagamento_conta_to_string)->getIndexedArray('id', 'id');
+            $this->item_pagamento_conta_to_string = implode(', ', $values);
+        }
+        else
+        {
+            $this->item_pagamento_conta_to_string = $item_pagamento_conta_to_string;
+        }
+
+        $this->vdata['item_pagamento_conta_to_string'] = $this->item_pagamento_conta_to_string;
+    }
+
+    public function get_item_pagamento_conta_to_string()
+    {
+        if(!empty($this->item_pagamento_conta_to_string))
+        {
+            return $this->item_pagamento_conta_to_string;
+        }
+    
+        $values = ItemPagamento::where('forma_pagamento_id', '=', $this->id)->getIndexedArray('conta_id','{conta->id}');
+        return implode(', ', $values);
+    }
+
+    public function set_item_pagamento_forma_pagamento_to_string($item_pagamento_forma_pagamento_to_string)
+    {
+        if(is_array($item_pagamento_forma_pagamento_to_string))
+        {
+            $values = FormaPagamento::where('id', 'in', $item_pagamento_forma_pagamento_to_string)->getIndexedArray('nome', 'nome');
+            $this->item_pagamento_forma_pagamento_to_string = implode(', ', $values);
+        }
+        else
+        {
+            $this->item_pagamento_forma_pagamento_to_string = $item_pagamento_forma_pagamento_to_string;
+        }
+
+        $this->vdata['item_pagamento_forma_pagamento_to_string'] = $this->item_pagamento_forma_pagamento_to_string;
+    }
+
+    public function get_item_pagamento_forma_pagamento_to_string()
+    {
+        if(!empty($this->item_pagamento_forma_pagamento_to_string))
+        {
+            return $this->item_pagamento_forma_pagamento_to_string;
+        }
+    
+        $values = ItemPagamento::where('forma_pagamento_id', '=', $this->id)->getIndexedArray('forma_pagamento_id','{forma_pagamento->nome}');
         return implode(', ', $values);
     }
 

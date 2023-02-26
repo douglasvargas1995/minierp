@@ -108,13 +108,13 @@ class ContaReceberLoteForm extends TPage
         $conta_dt_vencimento->setSize('100%');
 
 
-        $row1 = $this->form->addFields([new TLabel("Cliente:", '#000000', '14px', null, '100%'),$pessoa_id],[new TLabel("Categoria:", '#000000', '14px', null, '100%'),$categoria_id],[new TLabel("Forma de pagamento:", '#000000', '14px', null, '100%'),$forma_pagamento_id]);
+        $row1 = $this->form->addFields([new TLabel("Cliente:", null, '14px', null, '100%'),$pessoa_id],[new TLabel("Categoria:", null, '14px', null, '100%'),$categoria_id],[new TLabel("Forma de pagamento:", null, '14px', null, '100%'),$forma_pagamento_id]);
         $row1->layout = [' col-sm-4',' col-sm-4',' col-sm-4'];
 
-        $row2 = $this->form->addFields([new TLabel("Data de vencimento inicial:", '#000000', '14px', null, '100%'),$dt_vencimento_inicial],[new TLabel("Valor:", '#000000', '14px', null, '100%'),$valor]);
+        $row2 = $this->form->addFields([new TLabel("Data de vencimento inicial:", null, '14px', null, '100%'),$dt_vencimento_inicial],[new TLabel("Valor:", null, '14px', null, '100%'),$valor]);
         $row2->layout = [' col-sm-4',' col-sm-4'];
 
-        $row3 = $this->form->addFields([new TLabel("Tipo de geração:", '#000000', '14px', null, '100%'),$tipo_geracao],[new TLabel("Intervalo:", '#000000', '14px', null, '100%'),$intervalo],[new TLabel("Quantidade de contas:", '#000000', '14px', null, '100%'),$quantidade_contas],[new TLabel(" ", null, '14px', null, '100%'),$button_gerar_contas]);
+        $row3 = $this->form->addFields([new TLabel("Tipo de geração:", null, '14px', null, '100%'),$tipo_geracao],[new TLabel("Intervalo:", null, '14px', null, '100%'),$intervalo],[new TLabel("Quantidade de contas:", null, '14px', null, '100%'),$quantidade_contas],[new TLabel(" ", null, '14px', null, '100%'),$button_gerar_contas]);
         $row3->layout = ['col-sm-3','col-sm-3',' col-sm-3',' col-sm-3'];
 
         $row4 = $this->form->addFields([new TFormSeparator("Contas", '#333', '18', '#eee')]);

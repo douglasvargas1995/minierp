@@ -69,6 +69,8 @@ CREATE TABLE conta(
       dt_emissao date   , 
       dt_pagamento date   , 
       valor float   , 
+      valor_recebido float   , 
+      valor_diferenca float   , 
       parcela integer   , 
       obs text   , 
       mes_vencimento integer   , 
@@ -167,6 +169,19 @@ CREATE TABLE forma_pagamento(
 CREATE TABLE grupo_pessoa( 
       id  SERIAL    NOT NULL  , 
       nome varchar  (255)   NOT NULL  , 
+ PRIMARY KEY (id)) ; 
+
+CREATE TABLE item_pagamento( 
+      id  SERIAL    NOT NULL  , 
+      conta_id integer   NOT NULL  , 
+      forma_pagamento_id integer   NOT NULL  , 
+      obs text   , 
+      valor float   , 
+      mes char  (2)   , 
+      ano char  (4)   , 
+      created_at timestamp   , 
+      updated_at timestamp   , 
+      deleted_at timestamp   , 
  PRIMARY KEY (id)) ; 
 
 CREATE TABLE matriz_estado_pedido_venda( 
@@ -560,6 +575,8 @@ ALTER TABLE conta_anexo ADD CONSTRAINT fk_conta_anexo_1 FOREIGN KEY (conta_id) r
 ALTER TABLE conta_anexo ADD CONSTRAINT fk_conta_anexo_2 FOREIGN KEY (tipo_anexo_id) references tipo_anexo(id); 
 ALTER TABLE estado_pedido_venda_aprovador ADD CONSTRAINT fk_estado_pedido_venda_aprovador_1 FOREIGN KEY (estado_pedido_venda_id) references estado_pedido_venda(id); 
 ALTER TABLE estado_pedido_venda_aprovador ADD CONSTRAINT fk_estado_pedido_venda_aprovador_2 FOREIGN KEY (aprovador_id) references aprovador(id); 
+ALTER TABLE item_pagamento ADD CONSTRAINT fk_item_pagamento_1 FOREIGN KEY (forma_pagamento_id) references forma_pagamento(id); 
+ALTER TABLE item_pagamento ADD CONSTRAINT fk_item_pagamento_2 FOREIGN KEY (conta_id) references conta(id); 
 ALTER TABLE matriz_estado_pedido_venda ADD CONSTRAINT fk_matriz_estado_pedido_venda_1 FOREIGN KEY (estado_pedido_venda_origem_id) references estado_pedido_venda(id); 
 ALTER TABLE matriz_estado_pedido_venda ADD CONSTRAINT fk_matriz_estado_pedido_venda_2 FOREIGN KEY (estado_pedido_venda_destino_id) references estado_pedido_venda(id); 
 ALTER TABLE negociacao ADD CONSTRAINT fk_negociacao_1 FOREIGN KEY (cliente_id) references pessoa(id); 
